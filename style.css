@@ -1,0 +1,106 @@
+html {
+  background-color: #061e0a;
+  color: #27b73f;
+  font-family: myFont;
+  padding: 20px;
+}
+
+body::before {
+  content: ""; /* obligatoire */
+  position: absolute; /* positionnement libre */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("debian.jpg"); /* ton image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2; /* transparence */
+  z-index: -1; /* derrière le contenu */
+}
+
+h1,
+h2 {
+  font-size: 2rem;
+  overflow: hidden; /* masque le texte non encore "tapé" */
+  white-space: nowrap; /* garde le texte sur une seule ligne */
+  border-right: 3px solid #27b73f; /* curseur visible */
+  width: 0; /* point de départ de l'animation */
+  animation: typing 3s steps(30, end), blink 0.6s step-end infinite;
+  animation-fill-mode: forwards; /* garde la largeur finale */
+  font-size: 50px;
+}
+
+p {
+  font-size: 30px;
+}
+
+.glow-btn {
+  background: #061e0a;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: myFont;
+  font-size: 20px;
+  color: #27b73f;
+  a {
+    color: #27b73f;
+  }
+}
+
+main {
+  height: 400px;
+  text-align: center;
+}
+
+.commandes {
+  padding-bottom: 0;
+}
+
+footer {
+  padding-top: 768px;
+}
+
+img {
+  width: 300px;
+  padding: 30px;
+  opacity: 0; /* images invisibles au départ */
+  transform: translateY(10px); /* léger décalage vers le bas */
+  animation: fadeIn 0.6s ease forwards; /* animation pour l’apparition */
+  box-shadow: 10px 10px 10px black; /* légère brillance */
+  border-radius: 20%;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px #27b73f; /* légère brillance */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* revient à la position normale */
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 15ch;
+  } /* ajuster selon le nombre de caractères */
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("pixelFont.otf");
+}
